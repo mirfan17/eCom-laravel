@@ -85,12 +85,12 @@ class ProductController extends Controller
     {
         $user_id = Session::get('user')['id'];
 
-        $data = DB::table('carts')
+        $total = DB::table('carts')
             ->join('products','carts.product_id','products.id')
             ->where('carts.user_id',$user_id)
             ->sum('products.price');
 
-        return view('order', ['total' => $data]);
+        return view('order', ['total' => $total]);
     }
 
     public function orderPlace(Request $request)
@@ -115,5 +115,17 @@ class ProductController extends Controller
         Cart::where('user_id', $user_id)->delete();
 
         return redirect('/');
+    }
+
+    public function myOrder()
+    {
+        $user_id = Session::get('user')['id'];
+
+        $orders = DB::table('orders')
+            ->join('products','orders.product_id','products.id')
+            ->where('orders.user_id',$user_id)
+            ->get();
+
+        return view('myorder', ['orders' => $orders]);
     }
 }

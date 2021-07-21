@@ -27,8 +27,8 @@ use App\Http\Controllers\ProjectController;
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li class=""><a href="#">Orders</a></li>
+                <li class="active"><a href="/">Home</a></li>
+                <li class=""><a href="/myorder">Orders</a></li>
 
             </ul>
             <form action="/search" class="navbar-form navbar-left">
@@ -49,6 +49,7 @@ use App\Http\Controllers\ProjectController;
                 </li>
                 @else
                 <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
                 @endif
             </ul>
         </div><!-- /.navbar-collapse -->

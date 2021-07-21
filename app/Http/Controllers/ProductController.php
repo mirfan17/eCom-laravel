@@ -79,4 +79,16 @@ class ProductController extends Controller
 
        return redirect()->back();
     }
+
+    public function order()
+    {
+        $user_id = Session::get('user')['id'];
+
+        $data = DB::table('carts')
+            ->join('products','carts.product_id','products.id')
+            ->where('carts.user_id',$user_id)
+            ->sum('products.price');
+
+        return view('order', ['total' => $data]);
+    }
 }

@@ -25,20 +25,21 @@
                 </tbody>
             </table>
 
-            <form>
+            <form method="POST" action="/orderplace">
+                @csrf
                 <div class="form-group">
-                    <textarea class="form-control" placeholder="Address"></textarea>
+                    <textarea name="address" class="form-control" placeholder="Enter Your Address"></textarea>
                 </div>
                 <div class="form-group">
                     <label>Payment Method</label>
                     <p>
-                        <input type="radio" name="payment">   <span>Online Payment</span>
+                        <input type="radio" value="cash" name="payment">   <span>Online Payment</span>
                     </p>
                     <p>
-                        <input type="radio" name="payment">   <span>Easypaisa Payment</span>
+                        <input type="radio" value="cash" name="payment">   <span>Easypaisa Payment</span>
                     </p>
                     <p>
-                        <input type="radio" name="payment">   <span>Payment On Delivery</span>
+                        <input type="radio" value="cash" name="payment">   <span>Payment On Delivery</span>
                     </p>
                 </div>
                 <button type="submit" class="btn btn-default">Order Now</button>
